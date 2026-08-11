@@ -1,0 +1,50 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# ---- 相依套件 ----
+# node_modules 用 npm install 就能重建，體積龐大（幾百 MB 起跳），絕對不該進 Git
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# ---- 測試 ----
+/coverage
+
+# ---- Next.js 建置產物 ----
+# .next/ 是 `next dev` / `next build` 自動生成的快取與編譯結果，每次啟動都會重新產生
+/.next/
+/out/
+
+# ---- 正式打包產物 ----
+/build
+
+# ---- 作業系統雜項 ----
+.DS_Store
+*.pem
+
+# ---- 除錯/log 檔 ----
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# ---- Vercel 部署快取 ----
+.vercel
+
+# ---- TypeScript（雖然本專案主要用 .js，但保留以防萬一）----
+*.tsbuildinfo
+next-env.d.ts
+
+# ---- 使用者上傳的圖片（體積大、數量多，且是「執行期間產生的資料」不是「原始碼」）----
+# 換到新環境（或新的協作者 clone 專案）時這些資料夾會是空的，
+# 網站仍可正常運作，只是圖片會顯示預設的「沒有圖片」樣式，這是正常現象
+# 會員大頭貼
+/public/images/users/user-photo/*
+# 文章封面圖
+/public/images/articles/*
+# 商品主圖／介紹圖（依商品 id 分資料夾）
+/public/images/products/uploads

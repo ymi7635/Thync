@@ -1,0 +1,345 @@
+/* 會員註冊頁樣式 */
+/* 1920*1080 */
+/* 14 pro max */
+:root {
+  --black: var(--Black);
+  --bg: var(--Secondary100);
+
+  --primary-300: var(--Primary300);
+
+  --secondary: var(--Secondary800);
+
+  --grey-300: #878784;
+  --grey-500: #4f4e4a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.container1 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+.left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 50%;
+  z-index: 5;
+  margin-right: 3rem;
+}
+.block1 {
+  width: calc(90% - 6rem);
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.header img {
+  width: 129px;
+}
+.home-icon {
+  font-size: 25px;
+  color: var(--Primary500);
+}
+
+.home-icon:link,
+.home-icon:visited {
+  color: var(--Primary500);
+}
+.home-icon:hover,
+.home-icon:active {
+  color: var(--Secondary800);
+  text-decoration: none;
+}
+.header h1 {
+  font-size: 3rem;
+  align-self: center;
+  background: linear-gradient(92deg, #304a6f 0%, #94afca 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.toggle {
+  display: none;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.field {
+  margin: 10px 0 8px;
+  position: relative;
+}
+.password-block {
+  position: relative;
+}
+.password-block i {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.label {
+  display: block;
+  font-size: 14px;
+  color: var(--secondary);
+}
+.input {
+  width: 100%;
+  appearance: none;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid var(--grey-500);
+  background: transparent;
+  padding: 10px 44px 12px 0;
+  font-size: 18px;
+  color: var(--ink);
+}
+.fa-eye-slash {
+  color: var(--black);
+}
+.statement {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  font-size: 14px;
+}
+.link:link,
+.link:visited {
+  color: var(--secondary);
+}
+.link:hover,
+.link:active {
+  color: var(--secondary);
+  text-decoration: none;
+}
+.link2:link,
+.link2:visited {
+  color: var(--secondary);
+}
+.link2:hover,
+.link2:active {
+  color: var(--secondary);
+  text-decoration: none;
+}
+.btn-primary {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  background: var(--secondary);
+  color: var(--bg);
+  font-size: 16px;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
+}
+.btn-primary:link,
+.btn-primary:visited {
+  background: var(--secondary);
+}
+.btn-primary:hover,
+.btn-primary:active {
+  background: var(--Secondary500);
+}
+.divider {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 25px;
+  color: var(--black);
+}
+.divider::before,
+.divider::after {
+  content: "";
+  border-top: 2px dashed var(--grey-300);
+  height: 0;
+}
+.signin {
+  color: var(--black);
+  font-size: 16px;
+  text-align: center;
+  margin-top: 20px;
+  width: 100%;
+}
+.btn-google {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #ddd;
+  background: white;
+  margin: 20px auto 0 auto;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.btn-google:hover,.btn-google:active {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+.btn-google img {
+  width: 22px;
+  height: 22px;
+}
+.btn-google span {
+  font-size: 14px;
+}
+/* 背景圖片層 */
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/images/users/keyboard.jpg");
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: cover;
+  z-index: 1;
+}
+
+/* 隱藏的動畫容器 */
+.lottie-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  z-index: -1;
+}
+#mask-content {
+  height: 100vh;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .left {
+    width: 100%;
+    margin: 2rem;
+    align-items: flex-start;
+  }
+  .block1 {
+    width: 100%;
+  }
+  .hidden {
+    display: none;
+  }
+  .header img {
+    align-self: center;
+    width: 10rem;
+  }
+  .header h1 {
+    display: none;
+  }
+  .toggle {
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+    align-self: center;
+    margin-top: 20px;
+    padding: 5px 20px;
+    display: flex;
+    gap: 20px;
+  }
+  .toggle-link {
+    font-weight: 600;
+    color: var(--primary-300);
+    text-decoration: none;
+  }
+
+  .toggle-active {
+    font-weight: 600;
+    background: linear-gradient(92deg, #304a6f 0%, #94afca 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: underline;
+    text-decoration-color: #304a6f;
+  }
+  main {
+    margin-top: 50px;
+  }
+  form {
+    gap: 0;
+  }
+  .label {
+    font-size: 16px;
+  }
+  .input {
+    font-size: 20px;
+  }
+  .statement {
+    font-size: 16px;
+    align-self: flex-start;
+    margin-top: 30px;
+  }
+  .divider {
+    display: none;
+  }
+  .btn-primary {
+    font-size: 20px;
+    margin-top: 30px;
+  }
+  .round {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    transform: scaleX(1.2);
+    height: 200px;
+    background: var(--primary-300);
+    border-radius: 50% 50% 0 0 / 60% 60% 0 0;
+    box-shadow: 0 -4px 10px rgba(81, 103, 134, 0.25);
+    z-index: 1;
+  }
+  .link2:link,
+  .link2:visited {
+    color: var(--bg);
+  }
+  .link2:hover,
+  .link2:active {
+    color: var(--bg);
+    text-decoration: none;
+  }
+  .signin {
+    font-size: 18px;
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .btn-google {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .btn-google span {
+    font-size: 0;
+  }
+
+  .btn-google span::before {
+    content: "Google";
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,206 @@
+/* panels */
+.checkout {
+  max-width: auto;
+  margin: 24px auto;
+  padding: 0 12px;
+}
+
+.panel {
+  position: relative;
+  background: var(--Secondary100);
+  border: 1px solid #e5ebf2;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(39, 74, 120, 0.12);
+  margin-bottom: 16px;
+}
+
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 5px;
+  border-radius: 8px 8px 0 0;
+  background: linear-gradient(90deg, var(--Primary300), var(--Primary800));
+}
+
+.panel-title {
+  margin: 0;
+  padding: 25px 23px;
+  color: #274a78;
+  font-size: 22px;
+  font-weight: 700;
+  border-bottom: 1px solid #eef2f6;
+  box-shadow: 0 4px 10px rgba(39, 74, 120, 0.12);
+}
+
+.panel-body {
+  padding: 16px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.row-receipt {
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 8px; /* 元素之間保留一點間距 */
+}
+
+.radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--Primary500);
+  font-size: 16px;
+}
+
+.bill {
+  font-size: 16px;
+  color: var(--Primary500);
+  min-width: 60px;
+}
+
+/* summary list */
+.summary-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+}
+
+.summary-item,
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+.summary-item .label {
+  color: var(--Primary500);
+  font-weight: 400;
+}
+
+.summary-item .value {
+  font-weight: 500;
+  color: var(--Primary500);
+}
+
+.summary-total {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 2px solid #ccc;
+  align-items: flex-end;
+}
+
+.summary-total .left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: var(--Primary800);
+}
+
+.summary-total .price {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--Primary800);
+}
+
+/* buttons */
+.confirm-btn {
+  border: 0;
+  border-radius: 8px;
+  height: 60px;
+  width: 16%;
+  padding: 0 13px;
+  cursor: pointer;
+  margin: 0;
+}
+
+.btn-secondary {
+  background: var(--Primary500);
+  color: #fff;
+}
+
+.btn-primary {
+  background: var(--Danger500);
+  color: #fff;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 50px;
+  margin: 32px 0px;
+}
+
+/* ===== 手機 ===== */
+@media (max-width: 768px) {
+  html,
+  body {
+    width: 100%;
+  }
+
+  body {
+    margin: 0 auto;
+    max-width: var(--mobile-design-width);
+  }
+
+  main {
+    padding: 0 12px;
+  }
+
+  /* 流程條回歸自然流式，不覆蓋 */
+  .cart-header {
+    margin-top: 12px;
+    height: auto;
+  }
+
+  .cart-steps {
+    display: none;
+  }
+
+  /* 表單直排 */
+  .form-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .form-row input,
+  .form-row select,
+  .form-row button {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .row {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  /* 門市資訊換行顯示 */
+  .store-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+ .actions {
+    display: flex;
+    flex-direction: column-reverse; /* 上下順序反轉 */
+    align-items: stretch; /* 讓子元素撐滿 */
+    gap: 25px;
+    margin: 35px 0;
+    width: 100%;
+  }
+
+  .confirm-btn {
+    width: 100%;   /* 按鈕寬度滿版 */
+    margin: 0;     /* 移除多餘間距 */
+  }
+}

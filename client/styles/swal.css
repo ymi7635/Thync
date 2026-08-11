@@ -1,0 +1,49 @@
+/* SweetAlert2 彈窗客製化樣式 */
+/* 最強制的 SweetAlert2 居中修正 */
+body .swal2-container {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  z-index: 1001 !important;
+}
+
+body .swal2-popup {
+  position: relative !important;
+  margin: 0 !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  max-width: 90vw !important;
+}
+
+/* 手機版加強 */
+@media (max-width: 768px) {
+  body .swal2-container {
+    padding: 15px !important;
+  }
+  
+  body .swal2-popup {
+    width: 80vw !important;
+    max-width: 80vw !important;
+  }
+  
+  body .swal2-mobile-terms {
+    width: 85vw !important;
+    max-width: 85vw !important;
+  }
+}
+
+/* 如果還是有問題，用這個最極端的方法 */
+body .swal2-popup[class*="swal2-"] {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}

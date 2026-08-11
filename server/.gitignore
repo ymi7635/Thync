@@ -1,0 +1,29 @@
+# ---- 相依套件 ----
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+
+# ---- 環境變數（機密資訊！絕對不能 commit）----
+# .env 是 Node.js 常見慣例檔名；thync.env 是這個專案實際在用的檔名，
+# 裡面有 JWT 密鑰、資料庫密碼、Gmail SMTP 密碼——這行規則就是防止這些外洩的最後一道防線
+.env
+thync.env
+
+# ---- 建置產物 ----
+dist/
+build/
+
+# ---- log 檔 ----
+logs/
+*.log
+
+# ---- 編輯器/IDE 個人設定 ----
+.vscode/
+.idea/
+*.swp
+
+# ---- 測試 ----
+coverage/
+
+# ---- 作業系統雜項 ----
+.DS_Store

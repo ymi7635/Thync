@@ -1,0 +1,389 @@
+/* 讓取貨門市與依地圖選擇之間有空格 */
+.panel-body label > .checkout-btn {
+  margin-left: 16px;
+  /* margin-top: 20px; */
+}
+
+.form-row.checkbox-row label {
+  width: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 0;
+  white-space: normal;
+}
+
+.checkbox-input {
+  margin-right: 5px;
+}
+
+.form-row .zip-input {
+  flex: unset;
+  max-width: 60px;
+}
+
+.zip-input {
+  width: 10px;
+  min-width: 0;
+  background:  var(--Secondary100);
+  margin-right: 8px;
+}
+
+.form-row .input-carrier {
+  flex: unset;
+  width: 400px;
+  max-width: 100%;
+}
+
+/* 手機載具輸入欄位樣式 */
+.input-carrier {
+  max-width: 100%;
+  margin-top: 12px;
+  margin-bottom: 8px;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1px solid var(--Primary300);
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+.input-carrier + span {
+  color: var(--Primary500);
+  margin-left: 8px;
+  font-size: 14px;
+}
+
+/* 自訂 radio 樣式 */
+.radio {
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+}
+
+.radio input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.radio span {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 20px;
+  width: 20px;
+  background: var(--Secondary100);
+  border: 1.8px solid var(--Primary800);
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.radio input[type="radio"]:checked + span::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--Primary800);
+}
+
+.radio input[type="radio"]:focus + span {
+  outline: 2px solid var(--Secondary100);
+}
+
+/* 橫向排列 radio 選項 */
+.radio-group {
+  display: flex;
+  gap: 32px;
+}
+
+
+/* ===== 卡片與表單（原樣式整合） ===== */
+.checkout {
+  max-width: auto;
+  margin: 24px auto;
+  padding: 0 12px;
+}
+
+.panel {
+  position: relative;
+  background: var(--Secondary100);
+  border: 1px solid var(--Primary100);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(39, 74, 120, 0.12);
+  margin-bottom: 25px;
+}
+
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 5px;
+  border-radius: 8px 8px 0 0;
+  background: linear-gradient(90deg, var(--Primary300), var(--Primary800));
+}
+
+.panel-title {
+  margin: 0;
+  padding: 25px 23px;
+  color: var(--Primary800);
+  font-size: 22px;
+  font-weight: 700;
+  border-bottom: 1px solid var(--Secondary100);
+  box-shadow: 0 4px 10px rgba(39, 74, 120, 0.12);
+}
+
+.panel-body {
+  padding: 25px;
+}
+
+.checkout-pagerow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.form-row label {
+  width: 80px;
+  /* 統一 label 寬度 */
+  margin-right: 8px;
+}
+
+.form-row input {
+  flex: 1;
+  max-width: 50%;
+  box-sizing: border-box;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1px solid #d3dbe6;
+  font-size: 16px;
+}
+
+.form-row input,
+.form-row select,
+.form-row button {
+  border-radius: 18px;
+  background-color: var(--Secondary100);
+  border: 1px solid #cfd7df;
+  min-width: 120px;
+  padding: 15px 8px;
+}
+
+label input::placeholder {
+  color: var(--Primary300);
+  opacity: 1;
+}
+
+.radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--Primary500);
+  font-size: 16px;
+}
+
+.panel-body label {
+  color: var(--Primary500);
+}
+
+.store-info-text {
+  font-size: 16px;
+  color: var(--Primary500);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.bill {
+  font-size: 16px;
+  color: var(--Primary500);
+  min-width: 45px;
+  flex-shrink: 0;
+}
+
+/* 讓 .row 內的 radio-group 彈性展開，與標題有大間距 */
+.row .radio-group {
+  flex: 1;
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.email-input {
+  width: 50%;
+  max-width: 100%;
+}
+
+.checkout-btn {
+  border: 0;
+  border-radius: 8px;
+  height: 38px;
+  width: 9%;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.checkout-btn-step {
+  border: 0;
+  border-radius: 8px;
+  height: 62px;
+  width: 17%;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.checkout-btn-light {
+  background: var(--Primary300);
+  color: var(--White);
+}
+
+.checkout-btn-secondary {
+  background: var(--Primary500);
+  color: #fff;
+}
+
+.checkout-btn-primary {
+  background: var(--Danger500);
+  color: var(--White);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 50px;
+  margin: 32px 32px;
+}
+
+/* ===== 中型斷點：縮側邊距 ===== */
+@media (max-width: 1200px) {
+  main {
+    padding: 0 40px;
+  }
+
+  .header-top {
+    padding: 0 40px;
+  }
+
+  .cart-steps {
+    padding: 0 80px;
+  }
+}
+
+/* ===== 平板：推薦兩欄，表單更寬鬆 ===== */
+@media (max-width: 1000px) {
+  .recommend-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .actions {
+    justify-content: space-between;
+  }
+}
+
+/* ===== 手機 ===== */
+@media (max-width: 768px) {
+  html,
+  body {
+    width: 100%;
+  }
+
+  body {
+    margin: 0 auto;
+    max-width: var(--mobile-design-width);
+  }
+
+  main {
+    padding: 0 12px;
+  }
+
+  /* 流程條回歸自然流式，不覆蓋 */
+  .cart-header {
+    margin-top: 12px;
+    height: auto;
+  }
+
+  .cart-steps {
+    display: none;
+  }
+
+  /* 表單直排 */
+  .form-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .form-row input,
+  .form-row select,
+  .form-row button {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .row {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  /* 門市資訊換行顯示 */
+  .store-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  /* 操作按鈕滿寬 */
+  .actions {
+    margin: 16px 12px;
+    gap: 10px;
+  }
+
+  .checkout-btn {
+    width: 50%;
+    margin: 15px 0;
+  }
+  .actions {
+    flex-direction: column; /* 按鈕上下排列 */
+    align-items: stretch; /* 讓每顆按鈕撐滿 */
+    gap: 12px; /* 上下間距 */
+    margin:50px 0px;
+  }
+
+  .checkout-btn-step {
+    width: 100%; /* 每顆都佔滿一行 */
+    max-width: 100%;
+  }
+
+  .actions {
+    flex-direction: column-reverse; /* 手機時反轉上下 */
+  }
+
+  .radio-group.receipt{
+    flex-direction: column;
+    gap: 12px;
+  }
+}

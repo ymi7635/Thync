@@ -1,0 +1,370 @@
+/* ===== Base RWD 調整 ===== */
+main {
+  font-family: "Noto Sans TC", sans-serif;
+  margin: 0;
+  padding: 0 16px;
+  /* 手機預設留白 */
+}
+
+@media (min-width: 768px) {
+  main {
+    padding: 0 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  main {
+    padding: 0 192px;
+  }
+}
+
+/* ===== Cart Header ===== */
+.cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px;
+  height: 44px;
+  position: relative;
+  z-index: 1;
+}
+
+.cartIcon {
+  color: #274a78;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 0;
+}
+
+.backtomain {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: #89a2bf;
+  color: #fff;
+  border: 0;
+  border-radius: 12px;
+  padding: 14px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 0;
+}
+
+.backtomain i {
+  font-size: 15px;
+}
+
+.cart-header-steps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px;
+  /* 手機 */
+}
+
+.back-mobile {
+  display: none;
+  /* 預設隱藏 */
+}
+
+@media (max-width: 1024px) {
+  .back-mobile {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    font-size: 14px;
+    color: #274a78;
+    cursor: pointer;
+  }
+}
+
+/* 單一版本，讓它水平對齊 header */
+.cart-steps {
+  flex: 1;
+  /* 撐開中間 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  /* 移除內距 */
+  position: static;
+  /* 移掉舊的 top:-44px */
+}
+
+@media (max-width: 768px) {
+  .cart-steps {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .cart-header {
+    margin: 50px 60px;
+  }
+
+  .cartIcon {
+    margin-left: 1%;
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 768px) {
+  .cart-header-steps {
+    margin: 50px 20px;
+    /* 平板以上 */
+  }
+}
+
+@media (min-width: 768px) {
+  .cart-steps {
+    padding: 0 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cart-steps {
+    padding: 0 10px;
+  }
+}
+
+.cart-step {
+  --circle: 28px;
+  --r: 14px;
+  flex: 1 1 0;
+  /* 平均分配 */
+  min-width: 120px;
+  /* 避免太小 */
+  margin: 0 auto;
+  /* 水平置中 */
+  text-align: center;
+  position: relative;
+}
+
+.cart-step {
+  flex: 1 1 0;
+  /* 平均分配，縮放時保持比例 */
+  min-width: 100px;
+  /* 避免太小 */
+}
+
+.cart-step-label {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #9aa6b2;
+}
+
+.cart-step-circle {
+  width: var(--circle);
+  height: var(--circle);
+  border-radius: 50%;
+  border: 2px solid #cfd7df;
+  background: var(--Secondary100);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.cart-step-circle::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--Primary800);
+  display: none;
+}
+
+.cart-step:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  top: var(--r);
+  left: calc(-50% + var(--r) - 1px);
+  width: calc(100% - var(--circle) + 2px);
+  height: 2px;
+  background: #d7e1ea;
+}
+
+.cart-step.active:not(:first-child)::before {
+  background: var(--Primary800);
+}
+
+.cart-step.active .cart-step-circle {
+  border-color: var(--Primary800);
+}
+
+.cart-step.active .cart-step-circle::after {
+  display: block;
+}
+
+.cart-step.active .cart-step-label {
+  color: var(--Primary800);
+  font-weight: 700;
+}
+
+.cart-step.done .cart-step-circle {
+  background: var(--Primary800);
+  border-color: var(--Primary800);
+}
+
+.cart-step.done .cart-step-circle::after {
+  content: "✔";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+}
+
+.cart-step.done .cart-step-label {
+  color: var(--Primary800);
+  font-weight: 700;
+}
+
+.cart-step.done:not(:first-child)::before {
+  background: var(--Primary800);
+}
+
+/* 預設隱藏 (手機、平板都不顯示) */
+.backtomain {
+  display: none;
+}
+
+/* 桌機以上才顯示 */
+@media (min-width: 1024px) {
+  .backtomain {
+    display: inline-flex;
+  }
+}
+
+/* ===== Recommend Section ===== */
+.recommend-section {
+  margin: 32px 0px 64px;
+  background: var(--Secondary100);
+  border-radius: 8px;
+  padding: 24px;
+  position: relative;
+  box-shadow: 0 4px 4px rgba(39, 74, 120, 0.4);
+}
+
+.recommend-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+  background: linear-gradient(90deg, var(--Primary300), var(--Primary800));
+}
+
+.recommend-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--Primary800);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.recommend-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  border-top: 4px solid #e8f4f8;
+  padding-top: 25px;
+}
+
+@media (min-width: 768px) {
+  .recommend-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .recommend-list {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.recommend-item {
+  width: 100%;
+  background: var(--Secondary100);
+  border: 1px solid #e0e7ef;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.recommend-item img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+  margin: 0 0 8px;
+}
+
+.recommend-item-title {
+  overflow: hidden;
+  color: var(--Black);
+  text-overflow: ellipsis;
+  font-weight: 500;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  padding: 0 10px;
+}
+
+.recommend-price {
+  color: var(--Primary800);
+  font-size: 18px;
+  font-weight: 800;
+  padding: 5px 10px;
+}
+
+.recommend-item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 2px 16px;
+}
+
+.recommend-btn {
+  position: relative;
+  display: flex;
+  padding: 0px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  align-self: stretch;
+  background-color: var(--Secondary800);
+  color: var(--White);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+.recommend-btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      var(--Secondary100),
+      transparent);
+  transition: left 0.5s;
+}
+
+.recommend-btn:hover:before {
+  left: 100%;
+}

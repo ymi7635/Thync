@@ -1,0 +1,281 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:400,700&display=swap");
+
+/* Base styles */
+.coupon-area {
+  font-family: "Noto Sans TC", sans-serif;
+  background: var(--Secondary100);
+  /* min-height: 100vh; */
+  padding: 40px;
+  max-width: 1200px;
+}
+
+/* Title */
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  background: linear-gradient(90deg, var(--Primary800), var(--Primary300));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline-block;
+}
+
+
+/* Coupon card */
+.coupon-card {
+  background: var(--Secondary100);
+  border: 1px solid var(--Primary300);
+  border-radius: 12px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  width: 100%;
+  min-width: 375px;
+  gap: 15px;
+  flex: 1 1 280px;
+  /* 彈性卡片，保證 RWD */
+}
+
+.coupon-card .top {
+  padding: 13px 24px;
+}
+
+.coupon-card .type {
+  color: var(--Secondary500);
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.coupon-card .name {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--Primary800);
+  margin-bottom: 6px;
+}
+
+.coupon-card .desc {
+  color: var(--Primary500);
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+
+.coupon-card .bottom {
+  border-top: 1px dashed var(--Primary300);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.coupon-card .expire {
+  color: var(--Primary800);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.coupon-grid {
+  display: flex;
+  /* height: 836px; */
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 20px;
+  align-self: stretch;
+  flex-wrap: wrap;
+  position: relative;
+  justify-content: flex-start;
+}
+
+.status-label {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.status-label.usable {
+  background: var(--Primary500);
+  color: var(--White);
+}
+
+.status-label.expired {
+  background: var(--Primary300);
+  color: var(--White);
+}
+
+.status-label.used {
+  background: var(--Danger500);
+  color: var(--White);
+}
+
+.get-coupon-btn {
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  background: var(--Primary500);
+  color: var(--White);
+  overflow: hidden;
+
+  &:hover {
+    background: var(--Primary300);
+
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent,
+        var(--Primary100),
+        transparent);
+    transition: left 0.5s;
+  }
+
+  &:hover:before {
+    left: 100%;
+  }
+}
+
+/* 已使用標章 */
+.coupon-stamp-used {
+  position: absolute;
+  top: 50%;
+  left: 80%;
+  transform: translate(-50%, -50%) rotate(-10deg);
+  width: 150px;
+  height: 150px;
+  border: 4px solid var(--Danger500);
+  border-radius: 50%;
+  color: var(--Danger500);
+  font-size: 35px;
+  font-weight: 650;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  /* 不擋點擊 */
+  background: rgba(255, 255, 255, 0.3);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  animation: stamp-pop 0.3s ease-out;
+  z-index: 0;
+  /* 在底層 */
+}
+
+.used.coupon-card {
+  opacity: 0.6;
+  pointer-events: none;
+  /* 不可點擊 */
+
+}
+
+/* 已過期標章 */
+.coupon-stamp-expired {
+  position: absolute;
+  top: 50%;
+  left: 80%;
+  transform: translate(-50%, -50%) rotate(-10deg);
+  width: 150px;
+  height: 150px;
+  border: 4px solid #414141;
+  border-radius: 50%;
+  color: #414141;
+  font-size: 35px;
+  font-weight: 650;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  /* 不擋點擊 */
+  background: rgba(255, 255, 255, 0.3);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  animation: stamp-pop 0.3s ease-out;
+  z-index: 0;
+  /* 在底層 */
+}
+
+.expired.coupon-card {
+  opacity: 0.6;
+  pointer-events: none;
+  /* 不可點擊 */
+
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .coupon-area {
+    padding: 16px;
+  }
+
+  .filter-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .filter-bottom {
+    max-width: none;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .coupon-card .top {
+    padding: 12px 16px;
+  }
+
+  .coupon-card .bottom {
+    padding: 10px 16px;
+  }
+
+  .coupon-card .name {
+    font-size: 20px;
+  }
+
+  .coupon-card {
+    min-width: 300px;
+    /* 彈性卡片，保證 RWD */
+  }
+
+
+
+  /* 已使用標章+已過期標章*/
+  .coupon-stamp-used,.coupon-stamp-expired {
+    left: 70%;
+  }
+
+
+
+
+.user-coupon .nav-link{
+padding: 5px 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
