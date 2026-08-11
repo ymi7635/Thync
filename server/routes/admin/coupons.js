@@ -15,8 +15,11 @@ router.get("/", checkAdminToken, async (req, res) => {
       sql += " AND (code LIKE ? OR `desc` LIKE ?)";
       params.push(`%${search}%`, `%${search}%`);
     }
-    sql += " ORDER BY id DESC LIMIT ? OFFSET ?";
-    params.push(Number(per_page), (Number(page) - 1) * Number(per_page));
+    // LIMIT/OFFSET 不用 ? 綁定，避免 mysql2 在部分 MySQL/MariaDB 版本上噴
+    // "Incorrect arguments to mysqld_stmt_execute"，已用 parseInt 轉成安全整數再拼字串
+    const limitNum = Math.max(1, parseInt(per_page, 10) || 20);
+    const pageNum = Math.max(1, parseInt(page, 10) || 1);
+    sql += ` ORDER BY id DESC LIMIT ${limitNum} OFFSET ${(pageNum - 1) * limitNum}`;
 
     let countSql = "SELECT COUNT(*) AS total FROM coupon WHERE 1=1";
     const countParams = [];

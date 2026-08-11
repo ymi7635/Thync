@@ -66,7 +66,7 @@ router.get("/", async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    const statusCode = error.code ?? 401;
+    const statusCode = Number.isInteger(error.code) ? error.code : 401;
     const statusText = error.status ?? "error";
     const message = error.message ?? "身份驗證錯誤，請洽管理人員";
     res.status(statusCode).json({
@@ -320,7 +320,7 @@ router.get("/:account", async (req, res) => {
   } catch (error) {
     // 補獲錯誤
     console.log(error);
-    const statusCode = error.code ?? 401;
+    const statusCode = Number.isInteger(error.code) ? error.code : 401;
     const statusText = error.status ?? "error";
     const message = error.message ?? "身份驗證錯誤，請洽管理人員";
     res.status(statusCode).json({
@@ -436,7 +436,7 @@ router.post("/", upload.none(), async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    const statusCode = error.code ?? 500;
+    const statusCode = Number.isInteger(error.code) ? error.code : 500;
     const statusText = error.status ?? "error";
     const message = error.message ?? "註冊失敗，請洽管理人員";
     res.status(statusCode).json({
@@ -647,7 +647,7 @@ router.post("/login", upload.none(), async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    const statusCode = error.code ?? 400;
+    const statusCode = Number.isInteger(error.code) ? error.code : 400;
     const statusText = error.status ?? "error";
     const message = error.message ?? "登入失敗，請洽管理人員";
     res.status(statusCode).json({
@@ -688,7 +688,7 @@ router.post("/logout", checkToken, async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    const statusCode = error.code ?? 400;
+    const statusCode = Number.isInteger(error.code) ? error.code : 400;
     const statusText = error.status ?? "error";
     const message = error.message ?? "登出失敗，請洽管理人員";
     res.status(statusCode).json({
@@ -737,7 +737,7 @@ router.post("/status", checkToken, async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    const statusCode = error.code ?? 401;
+    const statusCode = Number.isInteger(error.code) ? error.code : 401;
     const statusText = error.status ?? "error";
     const message = error.message ?? "身份驗證錯誤，請洽管理人員";
     res.status(statusCode).json({

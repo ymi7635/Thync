@@ -113,9 +113,13 @@ router.get("/", async (req, res) => {
     }
 
     // 分頁
-    sql += " LIMIT ? OFFSET ?";
-    params.push(Number(per_page));
-    params.push((Number(page) - 1) * Number(per_page));
+    // LIMIT/OFFSET 不用 ? 綁定，避免 mysql2 在部分 MySQL/MariaDB 版本上噴
+    // "Incorrect arguments to mysqld_stmt_execute"，已用 parseInt 轉成安全整數再拼字串
+    {
+      const limitNum = Math.max(1, parseInt(per_page, 10) || 6);
+      const pageNum = Math.max(1, parseInt(page, 10) || 1);
+      sql += ` LIMIT ${limitNum} OFFSET ${(pageNum - 1) * limitNum}`;
+    }
 
     let [articles] = await connection.execute(sql, params);
 
@@ -264,9 +268,13 @@ router.get("/trash", async (req, res) => {
     }
     
     sql += " ORDER BY a.updated_at DESC";
-    sql += " LIMIT ? OFFSET ?";
-    params.push(Number(per_page));
-    params.push((Number(page) - 1) * Number(per_page));
+    // LIMIT/OFFSET 不用 ? 綁定，避免 mysql2 在部分 MySQL/MariaDB 版本上噴
+    // "Incorrect arguments to mysqld_stmt_execute"，已用 parseInt 轉成安全整數再拼字串
+    {
+      const limitNum = Math.max(1, parseInt(per_page, 10) || 6);
+      const pageNum = Math.max(1, parseInt(page, 10) || 1);
+      sql += ` LIMIT ${limitNum} OFFSET ${(pageNum - 1) * limitNum}`;
+    }
 
     let [articles] = await connection.execute(sql, params);
 
